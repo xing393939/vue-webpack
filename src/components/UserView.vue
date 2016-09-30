@@ -12,7 +12,6 @@
       </li>
     </ul>
     <p class="links">
-      <a :href="'https://news.ycombinator.com/submitted?id=' + user.id">submissions</a><br>
       <a :href="'https://news.ycombinator.com/threads?id=' + user.id">comments</a>
     </p>
   </div>
