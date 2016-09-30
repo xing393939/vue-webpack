@@ -18,10 +18,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../variables.styl"
-
 .user-view
-  color $gray
   li
     margin 5px 0
   .label

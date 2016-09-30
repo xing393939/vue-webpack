@@ -9,8 +9,6 @@
 </script>
 
 <style lang="stylus">
-@import "../variables.styl"
-
 .item-view
   .item
     padding-left 0
@@ -25,10 +23,8 @@
     p
       margin 8px 0
     .subtext
-      color $gray
       font-size 11px
   .itemtext
-    color $gray
     margin-top 0
     margin-bottom 30px
   .itemtext p
