@@ -8,51 +8,37 @@
         <p class="subtext">{{option.score}} points</p>
       </li>
     </ul>
-    <ul class="comments" v-if="comments">
-      <comment
-        v-for="comment in comments"
-        :comment="comment">
-      </comment>
-    </ul>
-    <p v-show="!comments.length && !isJob">No comments yet.</p>
   </div>
 </template>
 
 <script>
-import store from '../store'
 import Item from './Item.vue'
-import Comment from './Comment.vue'
 
 export default {
 
   name: 'ItemView',
 
   components: {
-    Item,
-    Comment
+    Item
   },
 
   data () {
     return {
       item: {},
-      comments: [],
       pollOptions: null
     }
   },
 
   route: {
     data ({ to }) {
-      return store.fetchItem(to.params.id).then(item => {
-        document.title = item.title + ' | Vue.js HN Clone'
-        return {
-          item,
-          // the final resolved data can further contain Promises
-          comments: store.fetchItems(item.kids),
-          pollOptions: item.type === 'poll'
-            ? store.fetchItems(item.parts)
-            : null
-        }
-      })
+      this.$http.get('/static/item.txt')
+          .then((response) => {
+              console.log(JSON.parse(response.data))
+              this.item = JSON.parse(response.data);
+          })
+          .catch(function(response) {
+              console.log(response)
+          })
     }
   },
 

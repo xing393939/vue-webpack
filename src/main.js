@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import Router from 'vue-router'
 import { domain, fromNow } from './filters'
 import App from './components/App.vue'
@@ -8,6 +9,7 @@ import UserView from './components/UserView.vue'
 
 // install router
 Vue.use(Router)
+Vue.use(VueResource)
 
 // register filters globally
 Vue.filter('fromNow', fromNow)

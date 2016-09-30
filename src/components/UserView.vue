@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import store from '../store'
 
 export default {
 
@@ -33,12 +32,16 @@ export default {
 
   route: {
     data ({ to }) {
-      // Promise sugar syntax: return an object that contains Promise fields.
-      // http://router.vuejs.org/en/pipeline/data.html#promise-sugar
       document.title = 'Profile: ' + to.params.id + ' | Vue.js HN Clone'
-      return {
-        user: store.fetchUser(to.params.id)
-      }
+
+      this.$http.get('/static/user.txt')
+          .then((response) => {
+              console.log(JSON.parse(response.data))
+              this.user = JSON.parse(response.data);
+          })
+          .catch(function(response) {
+              console.log(response)
+          })
     }
   }
 }
