@@ -22,6 +22,7 @@
 </template>
 
 <style lang="stylus">
+
 html, body
   font-family Verdana
   font-size 13px
@@ -38,6 +39,7 @@ a
   text-decoration none
   
 #wrapper
+  background-color #f6f6ef
   position relative
   width 85%
   min-height 80px
@@ -74,6 +76,7 @@ a
 
 .view
   position absolute
+  background-color #f6f6ef
   width 100%
   transition opacity .2s ease
   box-sizing border-box
