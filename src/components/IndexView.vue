@@ -1,7 +1,7 @@
 <template>
   <div class="news-view">
     <!-- item list -->
-    list
+    index
     <a :href="'#/item/' + 123">{{link}}</a>
     user
     <a :href="'#/user/' + 'john'">{{link}}</a>
