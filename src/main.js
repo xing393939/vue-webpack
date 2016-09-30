@@ -25,7 +25,7 @@ router.map({
   '/user/:id': {
     component: UserView
   },
-  '/item/:id': {
+  '/:category/:y/:m/:d/:title': {
     component: ItemView
   }
 })

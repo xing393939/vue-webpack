@@ -1,30 +1,24 @@
 <template>
-  <div class="news-view" :class="{ loading: !items.length }">
-    <!-- item list -->
-    <item
-      v-for="item in items"
-      :item="item"
-      :index="$index | formatItemIndex"
-      track-by="id">
-    </item>
-    <!-- navigation -->
-    <div class="nav" v-show="items.length > 0">
-      <a v-if="page > 1" :href="'#/news/' + (page - 1)">&lt; prev</a>
-      <a v-if="page < 4" :href="'#/news/' + (page + 1)">more...</a>
+    <div id="main">
+        <ul class="posts">
+            <li v-for="item in items">
+                <p class="date" cate="tech">{{item.date}}</p>
+                <a href="#!{{item.id}}">{{item.title}}</a>
+          </li>
+        </ul>
     </div>
-  </div>
+    <!-- navigation -->
+    <div v-show="items.length > 0">
+        <a v-if="page > 1" :href="'#/news/' + (page - 1)">&lt; prev</a>
+        <a v-if="page < 4" :href="'#/news/' + (page + 1)">more...</a>
+    </div>
 </template>
 
 <script>
-import Item from './Item.vue'
 
 export default {
 
   name: 'NewsView',
-
-  components: {
-    Item
-  },
 
   data () {
     return {
@@ -76,22 +70,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.news-view
-  padding-left 5px
-  padding-right 15px
-  &.loading:before
-    content "Loading..."
-    position absolute
-    top 16px
-    left 20px
-  .nav
-    padding 10px 10px 10px 40px
-    margin-top 10px
-    border-top 2px solid #f60
-    a
-      margin-right 10px
-      &:hover
-        text-decoration underline
-</style>
