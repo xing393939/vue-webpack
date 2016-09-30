@@ -1,92 +1,34 @@
 <template>
-  <div id="wrapper">
-    <!-- header -->
-    <div id="header">
-      <a id="yc" href="http://www.ycombinator.com">
-        <img src="https://news.ycombinator.com/y18.gif">
-      </a>
-      <h1><a href="#/">Hacker News</a></h1>
-      <span class="source">
-        Built with <a href="http://vuejs.org" target="_blank">Vue.js</a> |
-        <a href="https://github.com/vuejs/vue-hackernews" target="_blank">Source</a>
-      </span>
+<div id="nav">
+	<div class="wrapper">
+		<div id="logo"><a href="/"><img src="/static/logo.png" /></a></h1></div>
+		<ul>
+			<li id="category-all"><a href="/">全部</a></li>
+			<li id="category-tech"><a href="/category-tech.html">技术</a></li>
+			<li id="category-essay"><a href="/category-essay.html">随笔</a></li>
+			<li id="category-reading"><a href="/category-reading.html">阅读</a></li>
+			<li id="category-quotes"><a href="/quotes.html">引言</a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper main">
+    <div id="content" class="index">
+        <!-- main view -->
+        <router-view
+          class="view"
+          keep-alive
+          transition
+          transition-mode="out-in">
+        </router-view>
     </div>
-    <!-- main view -->
-    <router-view
-      class="view"
-      keep-alive
-      transition
-      transition-mode="out-in">
-    </router-view>
-  </div>
+    <div id="footer">
+    	<p style="color:#ccc;font-size:12px;text-align: center">make the world a little better and easier</p>
+    	<p style="clear:both"></p>
+    </div>
+</div>
 </template>
 
-<style lang="stylus">
-
-html, body
-  font-family Verdana
-  font-size 13px
-  height 100%
-
-ul
-  list-style-type none
-  padding 0
-  margin 0
-
-a
-  color #000
-  cursor pointer
-  text-decoration none
-  
-#wrapper
-  background-color #f6f6ef
-  position relative
-  width 85%
-  min-height 80px
-  margin 0 auto
-
-#header
-  background-color #f60
-  height 24px
-  position relative
-  h1
-    font-weight bold
-    font-size 13px
-    display inline-block
-    vertical-align middle
-    margin 0
-  .source
-    color #fff
-    font-size 11px
-    position absolute
-    top 4px
-    right 4px
-    a
-      color #fff
-      &:hover
-        text-decoration underline
-
-#yc
-  border 1px solid #fff
-  margin 2px
-  display inline-block
-  vertical-align middle
-  img
-    vertical-align middle
-
-.view
-  position absolute
-  background-color #f6f6ef
-  width 100%
-  transition opacity .2s ease
-  box-sizing border-box
-  padding 8px 20px
-  &.v-enter, &.v-leave
-    opacity 0
-
-@media screen and (max-width: 700px)
-  html, body
-    margin 0
-  #wrapper
-    width 100%
+<style>
+    @import '../css/style.css';
+    @import '../css/syntax.css';
 </style>
