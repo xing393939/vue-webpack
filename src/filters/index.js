@@ -1,11 +1,11 @@
-const urlParser = document.createElement('a')
-
-export function domain (url) {
-  urlParser.href = url
-  return urlParser.hostname
+export function host (url) {
+  const host = url.replace(/^https?:\/\//, '').replace(/\/.*$/, '')
+  const parts = host.split('.').slice(-3)
+  if (parts[0] === 'www') parts.shift()
+  return parts.join('.')
 }
 
-export function fromNow (time) {
+export function timeAgo (time) {
   const between = Date.now() / 1000 - Number(time)
   if (between < 3600) {
     return pluralize(~~(between / 60), ' minute')
@@ -16,10 +16,9 @@ export function fromNow (time) {
   }
 }
 
-function pluralize(time, label) {
-    if (time === 1) {
-        return time + label
-    }
-
-    return time + label + 's';
+function pluralize (time, label) {
+  if (time === 1) {
+    return time + label
+  }
+  return time + label + 's'
 }

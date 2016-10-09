@@ -1,1 +1,0 @@
-{"by":"chungchungz","descendants":15,"id":12610338,"score":45,"time":1475205222,"title":"Applying machine learning to the freight industry","type":"story","url":"http://blog.traintracks.io/data-culture-interview-kontainers/"}

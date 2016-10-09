@@ -1,1 +1,0 @@
-{"about":"Database expert,  DB2, MySQL, MSSQL, Oracle, IMS, IDMS, NOSQL, JSON, etc.  http:&#x2F;&#x2F;www.db2ops.com","created":1271936104,"id":"sjreese","karma":444}
